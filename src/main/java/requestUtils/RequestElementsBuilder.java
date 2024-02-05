@@ -17,8 +17,8 @@ public class RequestElementsBuilder {
     private static final RequestElementsBuilder requestElementsBuilder = new RequestElementsBuilder();
     private String baseUrl;
     private String endPoint;
-    private Set<Map.Entry<String, ConfigValue>> pathParams;
-    private Set<Map.Entry<String, ConfigValue>> queryParams;
+    private Set<Map.Entry<String, ConfigValue>> pathParams = null;
+    private Set<Map.Entry<String, ConfigValue>> queryParams = null;
 
     public static RequestElementsBuilder getInstance(){
         return requestElementsBuilder;

@@ -1,6 +1,5 @@
 package org.example;
 
-
 import asserts.Assertions;
 import constants.ApiConstants;
 import constants.FileConstants;
@@ -25,6 +24,7 @@ public class FunctionalTest
     Response response;
     @BeforeMethod
     public void setup(){
+        Request.init().clearAll();
         Request.init().setBaseUrl();
     }
 

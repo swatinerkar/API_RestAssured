@@ -16,9 +16,9 @@ public final class ExtentsReportUtils {
         return test;
     }
 
-    public static void setTest(ExtentTest test) {
-        ExtentsReportUtils.test = test;
-    }
+//    public static void setTest(ExtentTest test) {
+//        ExtentsReportUtils.test = test;
+//    }
 
     private static ExtentTest test;
 

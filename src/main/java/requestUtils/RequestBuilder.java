@@ -79,5 +79,6 @@ public class RequestBuilder {
 
     public void resetAllRequestElements() {
         pathParamMap.clear();
+        queryParamMap.clear();
     }
 }

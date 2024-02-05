@@ -1,6 +1,5 @@
 package asserts;
 
-import constants.FileConstants;
 import fileUtils.FileReader;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;

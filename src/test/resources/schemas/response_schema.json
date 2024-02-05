@@ -253,7 +253,7 @@
           "type": "integer"
         },
         "language": {
-          "type": "null"
+          "type": "string"
         },
         "has_issues": {
           "type": "boolean"

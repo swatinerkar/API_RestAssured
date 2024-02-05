@@ -4,15 +4,9 @@
     <listeners>
         <listener class-name="listeners.TestListeners"></listener>
     </listeners>
-    <test parallel="methods" thread-count="1" name="API_Automation">
+    <test name="API_Automation">
         <classes>
-            <class name="org.example.FunctionalTest">
-                <methods>
-                    <include name="getTestWithPathParam"/>
-                    <include name="getTestWithoutPathParam"/>
-                    <include name="getTestWithoutPathParamWithQueryParams"/>
-                </methods>
-            </class>
+            <class name="org.example.FunctionalTest"></class>
         </classes>
     </test>
 </suite>
