@@ -3,17 +3,22 @@
 
 This is a self study project created for REST API Automation. This can be helpful for begineer to understand API Automation.
 
-Used Git APIs for get calls.
+For testing used Git APIs.
 
 Test Cases:
     
-    1. Get call 
-
+    1. Get
         a. Without params
         b. with Path params
         c. with Query params
     
 ## 🔖 Topics
+
+- [Tech Stack](#tech_stack)
+- [Framework Demonstrates](#framework_demonstrates)
+- [Demo](#demo)
+- [About Me](#about_me)
+- [Support](#support)
 ## 💪 Tech Stack
 
 - **Java** : 11
@@ -31,11 +36,11 @@ Test Cases:
 * Added custom assertion
 * Reading data from application.conf file using typeSafe config library
 
-Improvements Area:
+Improvement Areas:
 * Need to update framework to support parallel test cases execution
 * Improve Exception Handling
 * Adding custome annotations
-## Demo
+## 🚀 Demo
 
 - Clone the repository
 - One can run all test cases directly by running testng.xml file
@@ -45,8 +50,6 @@ Improvements Area:
     ```
         test -Dtest=FunctionalTest#getTestWithPathParam
     ```
-
-
 ## 🌐 About Me
 
 I'm a Software Automation Tester, having 11+ years of experience.
