@@ -6,7 +6,8 @@
     </listeners>
     <test name="API_Automation">
         <classes>
-            <class name="org.example.FunctionalTest"></class>
+            <class name="org.example.FunctionalTest_Git"></class>
+            <class name="org.example.FunctionalTest_Reqres"></class>
         </classes>
     </test>
 </suite>

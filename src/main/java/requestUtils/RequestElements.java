@@ -18,5 +18,6 @@ public class RequestElements {
 //    private Map<String, String> headers;
     private Set<Map.Entry<String, ConfigValue>> pathParams;
     private Set<Map.Entry<String, ConfigValue>> queryParams;
+    private String requestBody;
 
 }

@@ -64,6 +64,14 @@ public class RequestBuilder {
         return this;
     }
 
+    public RequestBuilder setBody() {
+        if(requestElements.getRequestBody() != null || !(requestElements.getRequestBody().isBlank()))
+            requestSpecification.body(requestElements.getRequestBody());
+        else
+            throw new IllegalArgumentException("requestBody is properly set. Make sure to keep requestBody file under test/resources/body, save the exact file name under FileConstants file.");
+        return this;
+    }
+
     public Response getCall(){
         if(requestElements.getEndpoint() !=null || !(requestElements.getEndpoint().isBlank()))
             this.response = requestSpecification.log().all(true).get(requestElements.getEndpoint());
@@ -71,14 +79,26 @@ public class RequestBuilder {
         return this.response;
     }
 
+    public Response postCall() {
+        if(requestElements.getEndpoint() !=null || !(requestElements.getEndpoint().isBlank()))
+            this.response = requestSpecification.log().all(true).post(requestElements.getEndpoint());
+        responseLogs();
+        return this.response;
+    }
+
     private void responseLogs(){
-        response.prettyPrint();
+//        response.prettyPrint();
+        log.info("RESPONSE:->\n"+response.statusCode()+"\n");
         ExtentLogger.logResponse(response.prettyPrint());
     }
+
 
 
     public void resetAllRequestElements() {
         pathParamMap.clear();
         queryParamMap.clear();
     }
+
+
+
 }

@@ -1,5 +1,7 @@
 package org.example;
 
+import TestUtil.BaseTest;
+import annotations.FrameworkAnnotations;
 import asserts.Assertions;
 import constants.ApiConstants;
 import constants.FileConstants;
@@ -19,16 +21,13 @@ import org.testng.annotations.Test;
  */
 
 @Slf4j
-public class FunctionalTest
+@FrameworkAnnotations(applicationUnderTest = {"GIT"})
+public class FunctionalTest_Git extends BaseTest
 {
     Response response;
-    @BeforeMethod
-    public void setup(){
-        Request.init().clearAll();
-        Request.init().setBaseUrl();
-    }
 
-    @Test(enabled = true)
+
+    @Test(enabled = true, groups = {"git"})
     public void getTestWithPathParam(){
         Request request = Request.init().setEndPoint(ApiConstants.WITH_USERNAME_PATH_GET_REPOS).setPathParam(ApiConstants.PATH_PARAMS).build();
         response = request.get();
@@ -36,7 +35,7 @@ public class FunctionalTest
 
     }
 
-    @Test(enabled = true)
+    @Test(enabled = true, groups = {"git"})
     public void getTestWithoutPathParam(){
         Request request = Request.init().setEndPoint(ApiConstants.WITHOUT_PARAM_GET_ALL_REPOS).build();
         response = request.get();
@@ -44,7 +43,7 @@ public class FunctionalTest
         Assertions.assertJsonResponseSchema(response, FileConstants.RESPONSE_SCHEMA);
     }
 
-    @Test(enabled = true)
+    @Test(enabled = true, groups = {"git"})
     public void getTestWithoutPathParamWithQueryParams(){
         Request request = Request.init().setEndPoint(ApiConstants.WITHOUT_PARAM_GET_ALL_REPOS).setQueryParam(ApiConstants.QUERY_PARAMS).build();
         response = request.get();
@@ -55,9 +54,6 @@ public class FunctionalTest
 
     }
 
-    @AfterMethod
-    public void tearDown(){
-        Request.init().clearAll();
-    }
+
 
 }

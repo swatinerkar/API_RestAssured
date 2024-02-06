@@ -1,6 +1,5 @@
 package requestUtils;
 
-import config.ConfigReader;
 import com.typesafe.config.Config;
 import io.restassured.response.Response;
 
@@ -30,6 +29,11 @@ public class Request {
         return this;
     }
 
+    public Request setBaseUrl(String baseUrl){
+        requestElementsBuilder.setBaseURL();
+        return this;
+    }
+
     public Request build(){
         this.requestElements = requestElementsBuilder.buildRequestElements();
         return this;
@@ -39,7 +43,11 @@ public class Request {
         return requestBuilder.setRequest(this.requestElements).baseUri().setPathParam().setQueryParam().getCall();
     }
 
-
+    /**
+     *
+     * @param ApiConstants.PATHPARAM
+     * @return
+     */
     public Request setPathParam(String pathParam) {
         requestElementsBuilder.setPathParam(pathParam);
         return this;
@@ -56,6 +64,16 @@ public class Request {
     }
 
     public Config getConfig() {
-        return ConfigReader.getInstance().getConfig();
+        return requestElementsBuilder.getConfig();
+//        return ConfigReader.getInstance().getConfig();
+    }
+
+    public Request setBody(String requestInString) {
+        requestElementsBuilder.setBody(requestInString);
+        return this;
+    }
+
+    public Response post() {
+        return requestBuilder.setRequest(this.requestElements).baseUri().setPathParam().setQueryParam().setBody().postCall();
     }
 }

@@ -13,10 +13,11 @@ import java.util.Set;
  * A Builder class to build request elements using this class
  */
 public class RequestElementsBuilder {
-    private static final Config CONFIG = ConfigReader.getInstance().getConfig();
+    private static final Config CONFIG = ConfigReader.getInstance().getConfig().getConfig(ApiConstants.APPLICATION_UNDER_TEST.toLowerCase());
     private static final RequestElementsBuilder requestElementsBuilder = new RequestElementsBuilder();
     private String baseUrl;
     private String endPoint;
+    private String requestBody;
     private Set<Map.Entry<String, ConfigValue>> pathParams = null;
     private Set<Map.Entry<String, ConfigValue>> queryParams = null;
 
@@ -31,6 +32,13 @@ public class RequestElementsBuilder {
         return this;
     }
 
+    public RequestElementsBuilder setBaseURL(String baseUrl){
+        this.baseUrl = baseUrl.toLowerCase();
+        if(this.baseUrl == null || baseUrl.equalsIgnoreCase("") || baseUrl.isBlank())
+            throw new IllegalArgumentException("Check the key/value in the \"application.conf\" file. Make sure \"baseurl\" is in lowercase. \"baseurl\" can not be null.");
+        return this;
+    }
+
     public RequestElementsBuilder setEndPoint(String endPoint){
        this.endPoint = CONFIG.getString(endPoint.toLowerCase());
         if(this.endPoint == null || this.endPoint.equalsIgnoreCase("") || this.endPoint.isBlank())
@@ -40,7 +48,7 @@ public class RequestElementsBuilder {
 
     public RequestElements buildRequestElements(){
 //            we need to add headers, query params, path params, formParams etc.
-        return RequestElements.builder().setBaseUrl(this.baseUrl).setEndpoint(this.endPoint).setPathParams(this.pathParams).setQueryParams(this.queryParams).build();
+        return RequestElements.builder().setBaseUrl(this.baseUrl).setEndpoint(this.endPoint).setPathParams(this.pathParams).setQueryParams(this.queryParams).setRequestBody(this.requestBody).build();
     }
 
     public RequestElementsBuilder setPathParam(String param) {
@@ -58,13 +66,21 @@ public class RequestElementsBuilder {
         return this;
     }
 
+    public RequestElementsBuilder setBody(String requestInString) {
+        this.requestBody = requestInString;
+        return this;
+    }
+
     public void resetAllRequestElements() {
         this.baseUrl=null;
         this.endPoint=null;
         this.pathParams=null;
         this.queryParams=null;
+        this.requestBody=null;
         buildRequestElements();
     }
 
-
+    public Config getConfig(){
+        return CONFIG;
+    }
 }

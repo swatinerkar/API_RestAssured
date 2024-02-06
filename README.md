@@ -3,7 +3,7 @@
 
 This is a self study project created for REST API Automation. This can be helpful for begineer to understand API Automation.
 
-For testing used Git APIs.
+For testing used Git APIs and https://reqres.in
 
 Test Cases:
     
@@ -11,6 +11,9 @@ Test Cases:
         a. Without params
         b. with Path params
         c. with Query params
+		
+	2. Post
+		a. with run time field value updation in request body  
     
 ## 🔖 Topics
 
@@ -27,6 +30,9 @@ Test Cases:
 - **lombok** : 1.18.30
 - **com.typesafe.config** : 1.4.3
 - **extentreports** : 5.1.1
+- **json** : 20231013
+- **javafaker** : 1.0.2
+	
 ## 🛟 Framework Demonstrates
 
 * Builder Design Pattern
@@ -35,11 +41,13 @@ Test Cases:
 * testng library for TDD
 * Added custom assertion
 * Reading data from application.conf file using typeSafe config library
+* Added custom Annotations
 
 Improvement Areas:
 * Need to update framework to support parallel test cases execution
 * Improve Exception Handling
-* Adding custome annotations
+
+
 ## 🚀 Demo
 
 - Clone the repository
@@ -50,6 +58,8 @@ Improvement Areas:
     ```
         test -Dtest=FunctionalTest#getTestWithPathParam
     ```
+- One can run any specific test group. Currently groups are git and reqres.
+
 ## 🌐 About Me
 
 I'm a Software Automation Tester, having 11+ years of experience.

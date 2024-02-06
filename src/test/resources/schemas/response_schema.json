@@ -103,7 +103,7 @@
           "type": "string"
         },
         "description": {
-          "type": "null"
+          "type": "string"
         },
         "fork": {
           "type": "boolean"
@@ -241,7 +241,7 @@
           "type": "string"
         },
         "homepage": {
-          "type": "null"
+          "type": "string"
         },
         "size": {
           "type": "integer"
@@ -302,7 +302,41 @@
         },
         "topics": {
           "type": "array",
-          "items": {}
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "visibility": {
           "type": "string"
